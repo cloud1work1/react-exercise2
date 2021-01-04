@@ -31,13 +31,28 @@ function App() {
       playerChoice: null
     }
   ]);
+  const answerQuestion = (index, playerChoice) => {
+    
+      const selectedQuestion = questions[index];
+      console.log(selectedQuestion);
+      selectedQuestion.playerChoice = playerChoice;
+      questions[index]=selectedQuestion;
+      setQuestions(questions);
+      let currentScore = playerScore;
+      if(playerChoice===selectedQuestion.rightAnswer){
+        currentScore++;
+      } else {
+        currentScore--;
+      }
+      setPlayerScore(currentScore);
+  }
   return (
     <div className="App">
       <h1>Quiz App</h1>
       <hr/>
       {
-        questions.map(question => (
-          <Question question={question}/>
+        questions.map((question, index) => (
+          <Question question={question} key={index} index={index} answerQuestion={(playerChoice) => answerQuestion(index, playerChoice)}/>
         ))
       }
     </div>
