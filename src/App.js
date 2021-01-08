@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import {useState} from 'react';
 import Question from './Question';
+import Gameboard from './Gameboard';
 
 function App() {
   const [playerScore, setPlayerScore] = useState(0);
@@ -55,6 +56,7 @@ function App() {
           <Question question={question} key={index} index={index} answerQuestion={(playerChoice) => answerQuestion(index, playerChoice)}/>
         ))
       }
+      <Gameboard/>
     </div>
   );
 }
