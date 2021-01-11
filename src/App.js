@@ -3,6 +3,7 @@ import './App.css';
 import {useState} from 'react';
 import Question from './Question';
 import Gameboard from './Gameboard';
+import LifeCycle from './LifeCycleTest';
 
 function App() {
   const [playerScore, setPlayerScore] = useState(0);
@@ -57,6 +58,7 @@ function App() {
         ))
       }
       <Gameboard/>
+      {true && <LifeCycle/>}
     </div>
   );
 }
